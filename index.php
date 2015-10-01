@@ -1,3 +1,25 @@
+<?php 
+
+
+
+if ($_POST && $_POST['submit']) {
+    
+
+        
+
+// The message
+$message = "this mail was send from marcogomesweb";
+
+$message = 'Name: '. $_POST["quote-name"]. '<br>Email: ' . $_POST["quote-email"] . '<br>Phone: ' . $_POST["quote-phone"] . '<br>Type: ' . $_POST['quote-project-type'];
+
+
+$message = wordwrap($message, 70, "\r\n");
+
+// Send
+mail('marcogomesr@gmail.com', 'Cron test', $message);
+
+}
+ ?>
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
@@ -17,8 +39,11 @@
         <link href='http://fonts.googleapis.com,/css?family=Source+Sans+Pro:300,600,300italic,600italic|family=Bitter' rel='stylesheet'>
 <link rel="stylesheet" type="text/css" href="css/elastic_grid.min.css" />
    <script src="js/modernizr.custom.js"></script>
+   
+
     </head>
     <body>
+    
         <!--[if lt IE 7]>
             <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com,/">upgrade your browser</a> or <a href="http://www.google.com,/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
         <![endif]-->
@@ -62,11 +87,11 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
       <ul class="nav navbar-nav" id="nav">
-	      <li><a href="#section-1">Home</a></li>
-	      <li><a href="#section-2">Services</a></li>
-	      <li><a href="#section-3">Portfolio</a></li>
-	      <li><a href="#section-4">About</a></li>
-	      <li><a href="#section-5">Contact</a></li>
+          <li><a href="#section-1">Home</a></li>
+          <li><a href="#section-2">Services</a></li>
+          <li><a href="#section-3">Portfolio</a></li>
+          <li><a href="#section-4">About</a></li>
+          <li><a href="#section-5">Contact</a></li>
       </ul>
 
       
@@ -221,7 +246,7 @@ I’m a web Developer based in Venezuela. I create clean websites, love learning
                 
                     <p>Usea form below. All  fields are required</p>
 
-                    <form action="" method="POST" class="quote-form" novalidate>
+                    <form name="sendmail" method="POST" class="quote-form" novalidate>
                         <p>
                             <label for="quote-name">Full Name:</label>
                             <input type="text" name="quote-name" id="quote-name">
@@ -229,31 +254,16 @@ I’m a web Developer based in Venezuela. I create clean websites, love learning
                         <p>
                             <label for="quote-email">Email Address</label>
                             <input type="email" name="quote-email" id="quote-email">
-                        </p>
+                        </p>                     
+                      
                         <p>
-                            <label for="quote-phone">Phone Number:</label>
-                            <input type="text" name="quote-phone" id="quote-phone">
-                        </p>
-                        <p class="select-container">
-                            <label for="quote-project-type">Project Type:</label>
-                            <select name="quote-project-type" id="quote-project-type">
-                                <option value="0">- Select Project Type -</option>
-                                <option value="1">Website</option>
-                                <option value="2">Logo Design</option>
-                                <option value="3">Print</option>
-                            </select>
-                        </p>
-                        <p class="">
                             <label for="quote-project-type">Project Description:</label>
                             <textarea name="quote-project-type" id="quote-project-type" cols="30" rows="10" ></textarea>
                         </p>
-                        <p>
-                            <label for="quote-budget">Available Budget</label>
-                            <input type="number" name="quote-budget" id="quote-budget" min="50" step="50" class="align-right">
-                        </p>
+                       
 
                         <div class="cta">
-                            <input type="submit" class="btn btn-primary" value="Give me a quote">
+                            <input type="submit" class="btn btn-primary" value="Give me a quote" name="submit">
                         </div> <!-- end cta -->
 
                     </form>    
@@ -319,42 +329,147 @@ I’m a web Developer based in Venezuela. I create clean websites, love learning
             [
                 
                 {
-                    'title'         : 'The illustratedfirstwarworld',
-                    'description'   : 'Description text here',
-                    'thumbnail'     : ['img/thumb/theillustratedfirstworldwar.jpg', 'img/thumb/theillustratedfirstworldwar.jpg'],
-                    'large'         : [''],
+                    'title'         : 'The illustrated first war world',
+                    'description'   : 'Responsible for making the Front-end adjust the website to different tablets and smartphones, editing the css and js from different areas, created a new navigation bar based on wordpress Skills: PHP, HTML5, CSS3, JavaScript + plugins , responsive web design, wordpress',
+                    'thumbnail'     : ['img/portfolio/illustrated/thumb/Illustrated.png',
+                                        'img/portfolio/illustrated/thumb/Illustrated1.png',
+                                        'img/portfolio/illustrated/thumb/Illustrated2.png'],
+                    
+                    'large'         : ['img/portfolio/illustrated/Illustrated.png',
+                                        'img/portfolio/illustrated/Illustrated1.png',
+                                        'img/portfolio/illustrated/Illustrated2.png'],
                     'button_list'   :
                     [
-                        { 'title':'Site', 'url' : 'http://www.illustratedfirstworldwar.com/' }
+                        { 'title':'Website', 'url' : 'http://www.illustratedfirstworldwar.com/' }
                   
                     ],
-                    'tags'          : ['Front-end', 'Responsive-design', 'wordpress']
+                    'tags'          : ['Front-end','wordpress']
+                },
+
+                 {
+                    'title'         : 'London film premieres',
+                    'description'   : 'Responsible for making the Front-end website. Optimization web using SEO. using thrid API to retrieve the film data',
+                    'thumbnail'     : ['img/portfolio/londonfilmpremieres/thumb/London_Film_Premieres_2015_-_Watch_the_best_premieres_in_london.png',
+                                        'img/portfolio/londonfilmpremieres/thumb/London_Film_Premieres_-_Watch_avengers_age_of_ultron_Trailer.png',
+                                        'img/portfolio/londonfilmpremieres/thumb/London_Film_Premieres_-_Watch_avengers_age_of_ultron_Trailer 2.png'],
+                    'large'         : ['img/portfolio/londonfilmpremieres/London_Film_Premieres_2015_-_Watch_the_best_premieres_in_london.png',
+                                        'img/portfolio/londonfilmpremieres/London_Film_Premieres_-_Watch_avengers_age_of_ultron_Trailer.png',
+                                        'img/portfolio/londonfilmpremieres/London_Film_Premieres_-_Watch_avengers_age_of_ultron_Trailer-1.png'],
+                    'button_list'   :
+                    [
+                        { 'title':'Website', 'url' : 'http://londonfilmpremieres.com' }
+                  
+                    ],
+                    'tags'          : ['Front-end']
                 },
                 {
+                    'title'         : '2048 Tile games',
+                    'description'   : 'A minion version from the famous 2048 game skills: html5, javascript, css3',
+                    'thumbnail'     : ['img/portfolio/2048minion/thumb/2048minion.png',
+                                        'img/portfolio/2048minion/thumb/2048_tileminion.png',
+                                        'img/portfolio/2048minion/thumb/2048_tile_minion.png'],
+                                        
+                    'large'         : ['img/portfolio/2048minion/2048_tile_minion2.png',
+                                       'img/portfolio/2048minion/2048_tile_minion1.png',
+                                       'img/portfolio/2048minion/2048_tile_minion.png'],
+                    'button_list'   :
+                    [
+                        { 'title':'Website', 'url' : 'http://2048tilegames.com' }
+                  
+                    ],
+                    'tags'          : ['Front-end']
+                },
+
+                 {
+                    'title'         : 'flappy Pixel',
+                    'description'   : 'Responsible for making the using javascript vanilla with canvas',
+                    'thumbnail'     : ['img/portfolio/flappypixel/thumb/FlappyPixel.png',
+                                       'img/portfolio/flappypixel/thumb/FlappyPixel1.png',
+                                       'img/portfolio/flappypixel/thumb/FlappyPixel2.jpg'],
+                    'large'         : ['img/portfolio/flappypixel/FlappyPixel.png',
+                                        'img/portfolio/flappypixel/FlappyPixel1.png',
+                                        'img/portfolio/flappypixel/FlappyPixel2.png'],
+                    'button_list'   :
+                    [
+                        { 'title':'Site', 'url' : 'http://flappypixel.com' }
+                  
+                    ],
+                    'tags'          : ['canvas']
+                },
+
+                 {
+                    'title'         : 'Pavingblock-jbjc',
+                    'description'   : 'web design. based on Bootstrap Framework, PHP, JavaScript plugins Responsible for making the website to promote their service as tilers based on London. Included social network stats and Analytics,Skills: PHP, html5 , css3 , JavaScript ,AngularJS, responsive web design, bootstrap Responsible for making the Front-end',
+                    'thumbnail'     : ['img/portfolio/pavingblock/thumb/pavingblock-jbjc_co_uk2.png',
+                                       'img/portfolio/pavingblock/thumb/pavingblock-jbjc_co_uk1.png',
+                                       'img/portfolio/pavingblock/thumb/pavingblock-jbjc_co_uk.png'],
+
+                    'large'         : ['img/portfolio/pavingblock/pavingblock-jbjc_co_uk_gallery.png',
+                                       'img/portfolio/pavingblock/pavingblock-jbjc_co_uk1.png',
+                                       'img/portfolio/pavingblock/pavingblock-jbjc_co_uk2.png'],
+                    'button_list'   :
+                    [
+                        { 'title':'Website', 'url' : 'http://pavingblock-jbjc.co.uk/' }
+                  
+                    ],
+                    'tags'          : ['Angularjs', 'Front-end']
+                },
+
+
+                   {
+                    'title'         : 'The Top Vines',
+                    'description'   : 'Responsible for making the website using Vines api as a front-end and back-end Skills: PHP, html5 , css3 , JavaScript, mysql',
+                    'thumbnail'     : ['img/portfolio/thetopvines/thumb/The_topVines.png',
+                                       'img/portfolio/thetopvines/thumb/The_topVines1.png',
+                                       'img/portfolio/thetopvines/thumb/VineScript.png'],
+
+                    'large'         : ['img/portfolio/thetopvines/The_topVines.png',
+                                       'img/portfolio/thetopvines/The_topVines1.png',
+                                       'img/portfolio/thetopvines/VineScript.png'],
+                    'button_list'   :
+                    [
+                        { 'title':'Website', 'url' : 'http://thetopvines.com/' }
+                  
+                    ],
+                    'tags'          : ['Front-end', 'Back-end']
+                },
+
+                {
                     'title'         : 'Yorklandstone',
-                    'description'   : ' Description text here',
-                    'thumbnail'     : ['img/thumb/yorklandstone.jpg', 'img/thumb/yorklandstone.jpg'],
-                    'large'         : [''],
+                    'description'   : 'Responsible for making the Front-end. Optimization web using SEO on page. Some of the skills involve in the project were PHP, html5, JavaScript, PSD',
+                    'thumbnail'     : ['img/portfolio/yorklandstone/thumb/Yorkstone_Steps_London.png',
+                                       'img/portfolio/yorklandstone/thumb/London_Stone_Steps1.png',
+                                       'img/portfolio/yorklandstone/thumb/London_Stone_Steps.png'],
+
+                    'large'         : ['img/portfolio/yorklandstone/Yorkstone_Steps_London.png',
+                                       'img/portfolio/yorklandstone/Yorkstone_Steps_London1.png',
+                                       'img/portfolio/yorklandstone/Yorkstone_Steps_London2.png'],
                     'button_list'   :
                     [
                         { 'title':'Yorklandstone', 'url' : 'http://yorklandstone-ltd.co.uk' }
                        
                     ],
-                    'tags'          : ['PSD', 'SEO', 'Front-end', 'Responsive-design']
+                    'tags'          : ['PSD', 'SEO', 'Front-end']
                 },
 
               
                  {
-                    'title'         : 'Sevendenegocio',
-                    'description'   : 'Description text here',
-                    'thumbnail'     : ['img/thumb/sevendenegocio.jpg', 'img/thumb/sevendenegocio.jpg'],
-                    'large'         : [''],
+                    'title'         : 'Se vende negocio',
+                    'description'   : 'Responsible for the development Content management system (CMS)  using Laravel Framework MVC consumed by  PHP client hosted in Apache Some of the technologies required were CoffeeScript compiler, COMPASS CSS Framework, SASS, and PHP. HTML, JAVASCRIPT, SEO, optimization web Skills: PHP , HTML5, CSS3, JavaScript + plugins , responsive web design, laravel, compass, CoffeeScript, SEO, MySQL, Bootstrap ',
+
+                    'thumbnail'     : ['img/portfolio/sevendenegocio/thumb/sevende1.png',
+                                       'img/portfolio/sevendenegocio/thumb/sevende2.png',
+                                       'img/portfolio/sevendenegocio/thumb/sevende.png'],
+
+                    'large'         : ['img/portfolio/sevendenegocio/sevende1.png',
+                                       'img/portfolio/sevendenegocio/sevende2.png',
+                                       'img/portfolio/sevendenegocio/sevende.png'],
                     'button_list'   :
                     [
-                        { 'title':'Demo', 'Sevendenegocio' : 'http://sevendenegocio.net' }
+                        { 'title':'Website', 'Sevendenegocio' : 'http://sevendenegocio.net' }
                        
                     ],
-                    'tags'          : ['laravel', 'front-end', 'back-end', 'SEO']
+                    'tags'          : ['laravel', 'Front-end', 'Back-end', 'SEO']
                 }
 
             ]
@@ -362,5 +477,7 @@ I’m a web Developer based in Venezuela. I create clean websites, love learning
     });
 </script>
 
+
+<script src="//load.sumome.com/" data-sumo-site-id="ae9a0ca030872e14f40b2d53ec136109e54df642d60857ce66856e68a608fa30" async="async"></script>
     </body>
 </html>
