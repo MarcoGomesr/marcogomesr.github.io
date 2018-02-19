@@ -28,7 +28,6 @@
   
   var intViewportHeight = window.innerHeight;
   intViewportHeight = intViewportHeight - 72;
-  console.log(intViewportHeight);
   $('.banner').css('height', intViewportHeight);
 
 })();

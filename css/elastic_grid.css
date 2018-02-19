@@ -50,7 +50,11 @@
 	display: block;
 	position: relative;
 }
-
+.og-grid li>a, .og-grid li>a img{
+	border: 1px solid #ededed;
+	margin: 2px;
+	background: white;
+}
 
 /*.og-grid .sep {
 	margin: 20px;
